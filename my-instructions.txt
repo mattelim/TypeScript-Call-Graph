@@ -1,0 +1,2 @@
+cd collaboration-platform/
+tcg src/index.tsx src/**/*

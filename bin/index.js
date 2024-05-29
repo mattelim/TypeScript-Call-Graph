@@ -9,7 +9,9 @@ var graphviz_1 = require("./graphviz");
 var mermaid_1 = require("./mermaid");
 var helper_1 = require("./helper");
 var myArgs = process.argv.slice(2);
-var onlyTypescript = myArgs.filter(function (file) { return file.endsWith('ts'); });
+// include .ts and .tsx files
+// const onlyTypescript: string[] = myArgs.filter(file => file.endsWith('ts'));
+var onlyTypescript = myArgs.filter(function (file) { return file.endsWith('ts') || file.endsWith('tsx'); });
 var withoutNodeModules = onlyTypescript.filter(function (file) { return !file.includes('node_modules'); });
 if (withoutNodeModules.length) {
     console.log(withoutNodeModules);
@@ -28,13 +30,13 @@ if (withoutNodeModules.length) {
     });
 }
 else {
-    (0, helper_1.showHelpMessage)();
+    helper_1.showHelpMessage();
 }
 /**
  * If user confirms the files they want to analyze, proceed
  */
 function proceed() {
-    var functions = (0, extract_1.processFiles)(withoutNodeModules);
+    var functions = extract_1.processFiles(withoutNodeModules);
     startServer(functions.all, functions.called);
 }
 /**
@@ -53,14 +55,14 @@ function startServer(allFunctions, functionMap) {
     app.use('/vendor', express.static(path.join(__dirname, '..', 'graphing/vendor')));
     // API endpoints
     app.use('/all', function (req, res) { res.json(allFunctions); });
-    app.get('/arcAPI', function (req, res) { res.json((0, arc_1.convertForArc)(allFunctions, functionMap)); });
+    app.get('/arcAPI', function (req, res) { res.json(arc_1.convertForArc(allFunctions, functionMap)); });
     app.get('/cascadeAPI/:startFunc', function (req, res) {
-        res.json((0, cascade_1.convertForCascade)(functionMap, req.params.startFunc));
+        res.json(cascade_1.convertForCascade(functionMap, req.params.startFunc));
     });
-    app.get('/graphvizAPI', function (req, res) { res.json((0, graphviz_1.convertForGraphViz)(functionMap)); });
-    app.get('/mermaidAPI', function (req, res) { res.json((0, mermaid_1.convertForMermaid)(functionMap)); });
-    app.listen(3000);
-    var filePath = 'http://localhost:3000';
-    (0, helper_1.showServerRunning)(filePath);
+    app.get('/graphvizAPI', function (req, res) { res.json(graphviz_1.convertForGraphViz(functionMap)); });
+    app.get('/mermaidAPI', function (req, res) { res.json(mermaid_1.convertForMermaid(functionMap)); });
+    app.listen(3210);
+    var filePath = 'http://localhost:3210';
+    helper_1.showServerRunning(filePath);
     open(filePath);
 }

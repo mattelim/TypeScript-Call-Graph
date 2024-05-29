@@ -12,7 +12,9 @@ import { showHelpMessage, showServerRunning } from './helper';
 
 const myArgs = process.argv.slice(2);
 
-const onlyTypescript: string[] = myArgs.filter(file => file.endsWith('ts'));
+// include .ts and .tsx files
+// const onlyTypescript: string[] = myArgs.filter(file => file.endsWith('ts'));
+const onlyTypescript: string[] = myArgs.filter(file => file.endsWith('ts') || file.endsWith('tsx'));
 
 const withoutNodeModules: string[] = onlyTypescript.filter(file => !file.includes('node_modules'));
 
@@ -80,9 +82,9 @@ function startServer(allFunctions: string[], functionMap: Map<string, string[]>)
 
   app.get('/mermaidAPI',  function (req, res) { res.json(convertForMermaid(functionMap)) });
 
-  app.listen(3000)
+  app.listen(3210)
 
-  const filePath: string = 'http://localhost:3000';
+  const filePath: string = 'http://localhost:3210';
 
   showServerRunning(filePath);
 

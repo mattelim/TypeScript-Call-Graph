@@ -62,7 +62,7 @@ function logNode(node, sourceFile, indentLevel) {
     var indentation = "-".repeat(indentLevel);
     var syntaxKind = ts.SyntaxKind[node.kind];
     var nodeText = node.getText(sourceFile).split('\n')[0];
-    console.log("".concat(indentation).concat(syntaxKind, ": ").concat(nodeText));
+    console.log("" + indentation + syntaxKind + ": " + nodeText);
 }
 /**
  * Update `allFunctions` and `currentFunction`
