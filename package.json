@@ -1,22 +1,22 @@
 {
-  "name": "typescript-call-graph",
+  "name": "@mattelim/typescript-call-graph",
   "version": "0.0.3",
-  "description": "Create a call graph of your TypeScript files",
+  "description": "Create a call graph of your TypeScript files (forked from whyboris/TypeScript-Call-Graph)",
   "keywords": [
     "TypeScript",
     "call graph",
     "callgraph"
   ],
-  "author": "Boris Yakubchik",
-  "homepage": "https://yboris.dev",
+  "author": "Matte Lim",
+  "homepage": "https://mattelim.com",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/whyboris/TypeScript-Call-Graph.git"
+    "url": "git+https://github.com/mattelim/TypeScript-Call-Graph.git"
   },
   "main": "bin/index.js",
   "bin": {
-    "tcg": "./bin/index.js"
+    "tcg": "bin/index.js"
   },
   "scripts": {
     "start": "tsc && node bin/index.js index.ts",
@@ -34,5 +34,8 @@
     "open": "7.0.4",
     "typescript": "3.9.5"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/mattelim/TypeScript-Call-Graph/issues"
+  }
 }

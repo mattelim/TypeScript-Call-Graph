@@ -11,7 +11,7 @@ This **CLI** will create an interactive graph of all the functions and their cal
 ## How to use
 
 ```sh
-npm install -g typescript-call-graph
+npm install -g @mattelim/typescript-call-graph
 ```
 
 Inside any directory, run:
