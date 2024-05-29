@@ -36,6 +36,7 @@ You may also edit this repository as you'd like and install your custom version 
 
 ### Thank you
 
+- [Boris Yakubchik](https://github.com/whyboris) for the [original repo](https://github.com/whyboris/TypeScript-Call-Graph)
 - [Matteo Abrate](https://observablehq.com/@nitaku/tangled-tree-visualization-ii) for the _tangled tree visualization_
 - [Mike Bostock](https://observablehq.com/@d3/arc-diagram) for the _arc diagram_
 - [GraphViz](https://graphviz.org/), [node-graphviz](https://github.com/glejeune/node-graphviz), and [d3-graphviz](https://github.com/magjac/d3-graphviz) for the simple graph
