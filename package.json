@@ -1,6 +1,6 @@
 {
   "name": "@mattelim/typescript-call-graph",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create a call graph of your TypeScript files (forked from whyboris/TypeScript-Call-Graph)",
   "keywords": [
     "TypeScript",
